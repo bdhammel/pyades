@@ -63,6 +63,8 @@ def plot_with_ireg(xdata, ydata, ireg):
         ax.fill_between(reg_xdata, 0, reg_ydata, alpha=.5)
 
 def tplot(xdata, ydata, tidx, ireg=None):
+    """Plot data at a given time index
+    """
 
     if ireg is not None:
         plotter = lambda x, y: plot_with_ireg(x, y, ireg=ireg)
