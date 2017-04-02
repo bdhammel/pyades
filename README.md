@@ -10,7 +10,7 @@
 
 ## Get Help on pyades functions
 
-~~~python
+~~~bash
 >>>  dmps.parrays?
 
 Init signature: pyades.PPF(path=None, debug=False)
