@@ -98,6 +98,23 @@ class PPF:
         """
         return len(self.dumps)
 
+    @property
+    def nzones(self):
+        """Return the number of zones in the problem
+
+        Returns
+        -------
+        int : number of zones in the problem
+
+        Examples
+        --------
+        >>> dmps.nzones
+        250
+        """
+        return self.dumps[0].NZONE
+
+
+
     def summary(self):
         """Return a summery of the problem
         """

@@ -1,17 +1,21 @@
-# pyades - A python post-processing wrapper for the HYADES radiation hydrodynamics code by Cascade Applied Sciences
+# pyades
+
+A python post-processing wrapper for the HYADES radiation hydrodynamics code by Cascade Applied Sciences
 
 ## Example usage
 
 ~~~Python
 >>> import pyades
 >>> import matplotlib.pyplot as plt
->>> dmps = pyades.PPF("")
+>>> dmps = pyades.PPF("hyades_run.ppf")
 ~~~
 
 ## Get Help on pyades functions
 
+When using iPython, add a "question mark" at the end of any function call to view the documentation for it
+
 ~~~bash
->>>  dmps.parrays?
+>>>  pyades.PPF?
 
 Init signature: pyades.PPF(path=None, debug=False)
 
@@ -44,7 +48,6 @@ Init docstring:
     Type:           typej
 ~~~
 
-
 ## Hyades problem arrays 
 
 ### list all arrays dumped in the problem 
@@ -58,7 +61,20 @@ Init docstring:
 collect an array from the simulation output 
 
 ~~~python
->>>  pres = dmps.collect("PRES")
+>>>  p = dmps.collect("PRES")
+~~~
+
+#### Array dimensions 
+
+Arrays have the dimensions (number of zones, number of dumps)
+
+~~~python
+>>> dmps.nzones
+250
+>>> dmps.count
+500
+>>> p.shape
+(250, 500)
 ~~~
 
 ### Dealing with dump times
