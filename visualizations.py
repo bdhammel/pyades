@@ -54,16 +54,31 @@ def animate(xarray, yarray):
     return fig, ax, line_ani
 
 def plot_with_ireg(xdata, ydata, ireg):
+    """Plot with indicators of the different regions in the problem 
+    """
     fig = plt.figure()
     ax = fig.add_subplot(111)
     for reg in set(ireg):
         reg_xdata = xdata[ireg==reg]
         reg_ydata = ydata[ireg==reg]
-        ax.plot(reg_xdata, reg_ydata)
+        l = ax.plot(reg_xdata, reg_ydata)
         ax.fill_between(reg_xdata, 0, reg_ydata, alpha=.5)
+
+    return l
 
 def tplot(xdata, ydata, tidx, ireg=None):
     """Plot data at a given time index
+
+    Args
+    ----
+    xdata
+    ydata
+    tidx (int) : index of the dump number to plot 
+    ireg ([int]) : (None) plot with indicators of the different regions in the problem 
+
+    Returns
+    -------
+    matplotlib line object
     """
 
     if ireg is not None:
@@ -71,6 +86,7 @@ def tplot(xdata, ydata, tidx, ireg=None):
     else:
         plotter = plt.plot
 
-    plotter(xdata[:,tidx], ydata[:,tidx])
+    line, = plotter(xdata[:,tidx], ydata[:,tidx])
 
+    return line
 

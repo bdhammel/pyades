@@ -2,6 +2,13 @@
 
 A python post-processing wrapper for the HYADES radiation hydrodynamics code by Cascade Applied Sciences
 
+This script is still in development and there are undoubtedly some bugs and errors. A list of know problems is included at the bottom of this readme. 
+If you have any questions, feel free to contact me.
+
+This Python script was developed by Ben Hammel in cooperation with Cascade Applied 
+Sciences, Inc. (CAS).  CAS does not warrant the accuracy or suitability of this 
+script for any application, nor does it guarantee the script to be error free.
+
 ## Example usage
 
 ~~~Python
@@ -53,7 +60,8 @@ Init docstring:
 ### list all arrays dumped in the problem 
 
 ~~~python
->>>  dmps.parrays
+>>>  dmps.arrays
+['R', 'U', 'RCM', 'RHO', 'TE', 'TI', 'PRES'] 
 ~~~
 
 ### The pyades array format
@@ -66,7 +74,7 @@ collect an array from the simulation output
 
 #### Array dimensions 
 
-Arrays have the dimensions (number of zones, number of dumps)
+Arrays have the dimensions: (number of zones, number of dumps)
 
 ~~~python
 >>> dmps.nzones
@@ -118,7 +126,7 @@ Plot every 10th dump with standard numpy array indexing
 >>> plt.plot(x[1:-1,::10], p[:,::10])
 ~~~
 
-
+## Known issues
 
 
 
