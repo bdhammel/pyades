@@ -2,8 +2,8 @@
 
 A python post-processing wrapper for the HYADES radiation hydrodynamics code by Cascade Applied Sciences
 
-This script is still in development and there are undoubtedly some bugs and errors. A list of know problems is included at the bottom of this readme. 
-If you have any questions, feel free to contact me.
+**Note** This script is still in development and there are undoubtedly some bugs and errors. A list of know problems is included at the bottom of this readme. 
+If you have any questions, please feel free to contact me.
 
 This Python script was developed by Ben Hammel in cooperation with Cascade Applied 
 Sciences, Inc. (CAS).  CAS does not warrant the accuracy or suitability of this 
@@ -72,8 +72,6 @@ collect an array from the simulation output
 >>>  p = dmps.collect("PRES")
 ~~~
 
-#### Array dimensions 
-
 Arrays have the dimensions: (number of zones, number of dumps)
 
 ~~~python
@@ -120,7 +118,7 @@ Show different regions in the problem
 
 ### Plot at dump intervals
 
-Plot every 10th dump with standard numpy array indexing
+Plot every 10th dump using standard numpy array indexing
 
 ~~~python
 >>> plt.plot(x[1:-1,::10], p[:,::10])
@@ -128,5 +126,6 @@ Plot every 10th dump with standard numpy array indexing
 
 ## Known issues
 
-
+ 1. The script does not include a complete list of arrays. If a problem consist of a global array which is not included, the code will throw the error: `"Was not able to calculate size of {array name} type array, add it to the list`, If this is the case, the array type can be added to `GET_ARRAY_SIZE` dictionary in the `PPFDump` Class, with dimensions corresponding to step 5 in appendix 5 of the user manual.
+ 2. The code does not correctly import the photon group boundary energies or the photon group center energies (step 1. Appendix 5 in the User manual)
 
