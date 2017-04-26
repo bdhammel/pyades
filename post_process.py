@@ -113,6 +113,9 @@ class PPF:
         """
         return self.dumps[0].NZONE
 
+    def get_material(self):
+        return self.dumps[0]._materials
+
 
 
     def summary(self):

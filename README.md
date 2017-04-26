@@ -9,11 +9,32 @@ This Python script was developed by Ben Hammel in cooperation with Cascade Appli
 Sciences, Inc. (CAS).  CAS does not warrant the accuracy or suitability of this 
 script for any application, nor does it guarantee the script to be error free.
 
+## Installation
+
+Set up virtual environment and activate it 
+
+~~bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $
+~~~
+
+`cd` into the site-packages directory and install pyades
+
+~~bash
+(venv) $ cd venv/lib/python3.5/site-packages/
+(venv) $ git clone https://github.com/bdhammel/pyades.git
+~~~
+
+Now, whenever this environment is active, pyades can be imported as a standard python module 
+
+
 ## Example usage
+
+Import pyades and load a .ppf file from a Hyades run 
 
 ~~~Python
 >>> import pyades
->>> import matplotlib.pyplot as plt
 >>> dmps = pyades.PPF("hyades_run.ppf")
 ~~~
 
