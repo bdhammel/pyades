@@ -149,4 +149,5 @@ Plot every 10th dump using standard numpy array indexing
 
  1. The script does not include a complete list of arrays. If a problem consist of a global array which is not included, the code will throw the error: `"Was not able to calculate size of {array name} type array, add it to the list`, If this is the case, the array type can be added to `GET_ARRAY_SIZE` dictionary in the `PPFDump` Class, with dimensions corresponding to step 5 in appendix 5 of the user manual.
  2. The code does not correctly import the photon group boundary energies or the photon group center energies (step 1. Appendix 5 in the User manual)
+    - Using ioniz breaks the parser -- this is related to the issue with the photon group energies --
 
