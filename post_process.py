@@ -48,6 +48,7 @@ class PPF:
         """
         if path:
             self.read_ppf(path, debug)
+            self.validate()
 
     def read_ppf(self, path, debug=False):
         """Read the supplied ppf file
@@ -82,6 +83,27 @@ class PPF:
             f.seek(4, 1) # fast forward to the next dump
 
         f.close()
+
+    def validate(self):
+        """Check to see if there were any problems during parsing of the dump file
+        """
+
+        errors = []
+
+        print("\n" + "-"*50)
+        print("Running validation checker to see if there were mistakes during post processing\n")
+        # Assert that the number of regions matches the expected number
+        for dump in self.dumps:
+            try:
+                assert len(set(dump.IREG)) == dump.NREG
+            except:
+                errors.append("zone region has been imported incorrectly, \n\
+                        --this is an issue when using ioniz--")
+
+        for error in set(errors): 
+            print(error)
+
+        print("...done")
 
     @property
     def count(self):
@@ -286,6 +308,8 @@ class PPFDump:
         NRMAXX  - maximum number of regions
         """
 
+        _ = self._extract_packet_values(1, "I", as_array=True)
+
         self.NGRPMXX = self._extract_packet_values(1, "I")
         self.NIONMXX = self._extract_packet_values(1, "I")
         self.NLVLMXX = self._extract_packet_values(1, "I")
@@ -297,7 +321,7 @@ class PPFDump:
         self.NZMAXX = self._extract_packet_values(1, "I")
 
         # Unsure why this is necessary
-        _ = self._extract_packet_values(3, "I", as_array=True)
+        _ = self._extract_packet_values(2, "I", as_array=True)
 
     def _extract_header(self):
         """Extract the header for this specific dump
@@ -333,14 +357,12 @@ class PPFDump:
         TODO : Fix problem with importing photon groups
         """
 
-        # Fast forward, photo groups seem wrong?
-        self._f.seek(1396, 1)
+        # Might be 2 4byte buffer, and 1 4 byte package belongs to PHGRPBND
+        _ = self._extract_packet_values(3, "I", as_array=True)
 
         # Get region numbers
         self.IREG = self._extract_packet_values(self.NZONE, "I", as_array=True)
 
-        # Assert that the number of regions matches the expected number
-        assert len(set(self.IREG)) == self.NREG
 
         _ = self._extract_packet_values(1, "I")
 

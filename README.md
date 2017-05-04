@@ -11,20 +11,21 @@ script for any application, nor does it guarantee the script to be error free.
 
 ## Installation
 
-Set up virtual environment and activate it 
+Set up virtual environment and activate it   
 
 ~~bash
 $ python3 -m venv venv
 $ source venv/bin/activate
 (venv) $
-~~~
+~~~  
 
-`cd` into the site-packages directory and install pyades
+
+Now, `cd` into the site-packages directory and install pyades  
 
 ~~bash
 (venv) $ cd venv/lib/python3.5/site-packages/
 (venv) $ git clone https://github.com/bdhammel/pyades.git
-~~~
+~~~  
 
 Now, whenever this environment is active, pyades can be imported as a standard python module 
 
