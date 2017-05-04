@@ -13,7 +13,7 @@ script for any application, nor does it guarantee the script to be error free.
 
 Set up virtual environment and activate it   
 
-~~bash
+~~~bash
 $ python3 -m venv venv
 $ source venv/bin/activate
 (venv) $
@@ -22,7 +22,7 @@ $ source venv/bin/activate
 
 Now, `cd` into the site-packages directory and install pyades  
 
-~~bash
+~~~bash
 (venv) $ cd venv/lib/python3.5/site-packages/
 (venv) $ git clone https://github.com/bdhammel/pyades.git
 ~~~  
