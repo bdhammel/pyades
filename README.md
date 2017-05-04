@@ -20,7 +20,7 @@ $ source venv/bin/activate
 ~~~  
 
 
-Now, `cd` into the site-packages directory and install pyades  
+`cd` into the site-packages directory and install pyades  
 
 ~~~bash
 (venv) $ cd venv/lib/python3.5/site-packages/
