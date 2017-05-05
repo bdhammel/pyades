@@ -149,7 +149,8 @@ Plot every 10th dump using standard numpy array indexing
 ### Animate Hyades output
 
 ~~~python
->>> fig, ax, ani = ph.animate(x[1:-1], den)
+>>> ani = ph.animate(x[1:-1], den)
+>>> ani = ph.animate(x[1:-1], den, t) # include the time array to have the dump time printed to the animation plot
 ~~~
 
 To start, stop, start over from the begining, or step through one frame at a time the following commands can be used:
