@@ -155,10 +155,10 @@ Plot every 10th dump using standard numpy array indexing
 To start, stop, start over from the begining, or step through one frame at a time the following commands can be used:
 
 ~~~python
->>> ani.event_source.stop() # stop the animation
->>> ani.event_source.start() # restart a stoped animation
->>> ani.frame_seq = ani.new_frame_seq() # restart an animation from the begining
->>> ani._step() # Step through an animation one frame at a time (you'll need to stop the animation first)
+>>> ani.stop() # stop the animation
+>>> ani.start() # restart a stoped animation
+>>> ani.restart() # restart an animation from the begining
+>>> ani.step() # Step through an animation one frame at a time (you'll need to stop the animation first)
 ~~~
 
 I plan to build these into a control bar as buttons. If you're reading this and want to see it happen, shoot me a message. 
