@@ -146,6 +146,23 @@ Plot every 10th dump using standard numpy array indexing
 >>> plt.plot(x[1:-1,::10], p[:,::10])
 ~~~
 
+### Animate Hyades output
+
+~~~python
+>>> fig, ax, ani = ph.animate(x[1:-1], den)
+~~~
+
+To start, stop, start over from the begining, or step through one frame at a time the following commands can be used:
+
+~~~python
+>>> ani.event_source.stop() # stop the animation
+>>> ani.event_source.start() # restart a stoped animation
+>>> ani.frame_seq = ani.new_frame_seq() # restart an animation from the begining
+>>> ani._step() # Step through an animation one frame at a time (you'll need to stop the animation first)
+~~~
+
+I plan to build these into a control bar as buttons. If you're reading this and want to see it happen, shoot me a message. 
+
 ## Known issues
 
  1. The script does not include a complete list of arrays. If a problem consist of a global array which is not included, the code will throw the error: `"Was not able to calculate size of {array name} type array, add it to the list`, If this is the case, the array type can be added to `GET_ARRAY_SIZE` dictionary in the `PPFDump` Class, with dimensions corresponding to step 5 in appendix 5 of the user manual.
