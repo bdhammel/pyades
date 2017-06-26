@@ -5,7 +5,7 @@ A python post-processing wrapper for the HYADES radiation hydrodynamics code by 
 **Note** This script is still in development and there are undoubtedly some bugs and errors. A list of know problems is included at the bottom of this readme. 
 If you have any questions, please feel free to contact me.
 
-This Python script was developed by Ben Hammel in cooperation with Cascade Applied 
+**Disclaimer** This Python script was developed by Ben Hammel in cooperation with Cascade Applied 
 Sciences, Inc. (CAS).  CAS does not warrant the accuracy or suitability of this 
 script for any application, nor does it guarantee the script to be error free.
 
